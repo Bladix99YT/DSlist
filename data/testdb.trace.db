@@ -48,3 +48,12 @@ INSERT INTO tb_game (title, score, game_year, genre, platforms, img_url, short_d
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.bladix.dslist.DslistApplication.main(DslistApplication.java:10)
+2025-01-26 15:29:06.261323-04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LONG_DESCRIPTION CHARACTER VARYING(255)": "'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorum illum... (400)"; SQL statement:
+INSERT INTO "PUBLIC"."TB_GAME_COPY_3_0"("ID", "TITLE", "GAME_YEAR", "GENRE", "PLATFORMS", "SCORE", "IMG_URL", "SHORT_DESCRIPTION", "LONG_DESCRIPTION") OVERRIDING SYSTEM VALUE SELECT "ID", "TITLE", "GAME_YEAR", "GENRE", "PLATFORMS", "SCORE", "IMG_URL", "SHORT_DESCRIPTION", "LONG_DESCRIPTION" FROM "PUBLIC"."TB_GAME" [22001-232]
+2025-01-26 15:32:57.965311-04:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM TB_GAME TB_GAME [*]TB_GAME_LIST"; SQL statement:
+SELECT * FROM TB_GAME TB_GAME TB_GAME_LIST [42000-232]
+2025-01-26 15:33:01.469579-04:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM TB_GAME TB_GAME [*]TB_GAME_LIST TB_BELONGING"; SQL statement:
+SELECT * FROM TB_GAME TB_GAME TB_GAME_LIST TB_BELONGING [42000-232]
