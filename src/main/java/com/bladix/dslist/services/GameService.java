@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bladix.dslist.dto.GameDTO;
 import com.bladix.dslist.dto.GameMinDTO;
 import com.bladix.dslist.entities.Game;
+import com.bladix.dslist.projections.GameMinProjection;
 import com.bladix.dslist.repositories.GameRepository;
 
 @Service
@@ -31,6 +32,11 @@ public class GameService {
 		return dto;
 	}
 	
-	
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findBylist(Long listId){
+		List<GameMinProjection> result = gameRepository.searchByList(listId);
+		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
+		return dto;
+	}
 	
 }
